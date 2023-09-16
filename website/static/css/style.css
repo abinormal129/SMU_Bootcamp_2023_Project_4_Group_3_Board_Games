@@ -1,0 +1,26 @@
+/* styles.css */
+header {
+    background-color: #ac1e1e;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    /* Make the list items display horizontally */
+    display: flex; /* Use flexbox to achieve horizontal layout */
+}
+
+nav ul li {
+    /* Display list items horizontally with some spacing */
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
