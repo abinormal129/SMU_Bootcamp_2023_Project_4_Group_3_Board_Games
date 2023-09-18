@@ -14,6 +14,7 @@
 </head>
 
 <body>
+  <!-- Navigation bar -->
   <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container-fluid">
       <h4>Choose your Adventure: &nbsp&nbsp&nbsp&nbsp </h4>
@@ -31,10 +32,10 @@
             <a class="nav-link" href="board_game_recommender">Board Game Recommender</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="tableau01">Tableau 01</a>
+            <a class="nav-link" href="tableau01">Metadata</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="tableau02">Tableau 02</a>
+            <a class="nav-link" href="tableau02">Tableau02</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="sample_data">Data Table</a>
@@ -52,11 +53,11 @@
       </div>
     </div>
   </nav>
+  <!-- Navigation bar -->
 
 
 
-
-
+  <!-- Page Title/Intro -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
@@ -65,19 +66,12 @@
         <h5>Choose from the dropdowns below to roll the dice and get a suggested game you can try next!</h5>
       </div>
     </div>
+   <!-- Page Title/Intro -->
+   
+   
+
     <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Test Subject ID No.:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Demographic Info</h3>
-          </div>
-          <div id="sample-metadata" class="panel-body"></div>
-        </div>
-      </div>
+      
       <div class="col-md-5">
         <div id="bar"></div>
       </div>
@@ -92,7 +86,252 @@
     </div>
   </div>
 
-  <script src="./static/js/app.js"></script>
+<!-- a;lskfjsalkfjdsljfkd -->
+<div class="card-body">
+  <div class="content">
+
+    <form>
+      <fieldset>
+        <legend>Choose your board game references:</legend>
+
+
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Mechanics</label>
+          <select class="form-select" id="user_preference_mechanic">
+            <!-- Need appropriate values/options -->
+            <option>Co-operative</option>
+            <option>Dice Rolling</option>
+            <option>Player-v-Player</option>
+            <option>Movement</option>
+            <option>Roll Playing</option>
+            <option>Other</option>
+            <option></option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Categories</label>
+          <select class="form-select" id="user_preference_category">
+            <!-- Need appropriate values/options -->
+            <option>Era/Age/Period - [Age of Reason, 
+              American West, 
+              Ancient, 
+              Medieval, 
+              Napoleonic, 
+              Post-Napoleonic, 
+              Prehistoric, 
+              Renaissance]
+              </option>
+            <option>Wargames - [ American Civil, 
+              American Indian Wars, 
+              American Revolutionary, 
+              Korean, 
+              Modern Warfare, 
+              Vietnam, 
+              WWI ,
+              WWII]</option>
+            <option>Strategy - [Abstract, 
+              Bluffing, 
+              City Building, 
+              Civilization, 
+              Deduction, 
+              Economic, 
+              Exploration, 
+              Industry / Manufacturing, 
+              Mafia, 
+              Maze, 
+              Murder/Mystery, 
+              Negotiation, 
+              Pirates, 
+              Political, 
+              Puzzle, 
+              Real-time, 
+              Spies/Secret Agents, 
+              Transportation, 
+              Zombies]</option>
+            <option>Adventure - [Action / Dexterity, 
+              Arabian, 
+              Aviation / Flight, 
+              Comic Book / Strip, 
+              Fantasy, 
+              Movies / TV / Radio theme, 
+              Mythology, 
+              Nautical, 
+              Pike and Shot, 
+              Print & Play, 
+              Science Fiction, 
+              Space Exploration, 
+              Travel, 
+              Video Game Theme]</option>
+            <option>Educational - [Children's Game, 
+              Book, 
+              Math, 
+              Medical, 
+              Memory, 
+              Novel-based, 
+              Number, 
+              Trivia, 
+              Word Game]</option>
+            <option>Other - [Sports, 
+              Racing, 
+              Fighting, 
+              Animals, 
+              Card Game, 
+              Dice, 
+              Electronic, 
+              Game System, 
+              Horror]</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Age</label>
+          <select class="form-select" id="exampleSelect1">
+            <!-- Need appropriate values, options and ranges -->
+            <option value="1">Less than 5 years old</option>
+            <option value="1">5 - 11 years old</option>
+            <option value="1">11 - 14 years old</option>
+            <option value="1">15 - 18 years old</option>
+            <option value="1">18 and up</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Game Length</label>
+          <select class="form-select" id="exampleSelect1">
+            <!-- Need appropriate values, options and ranges -->
+            <option>Short Game</option>
+            <option>Medium Lengh Game (less than 1 hour)</option>
+            <option>I have no other plans today!</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Complexity</label>
+          <select class="form-select" id="user_preference_complexity">
+            <!-- Need appropriate values, options and ranges -->
+            <option>Casual Gamers</option>
+            <option>Occasional Players</option>
+            <option>Core Gamers</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Minimum Players</label>
+          <select class="form-select" id="user_preference_minplayers">
+            <option value="1">Call me Hans Solo</option>
+            <option value="2">Date Night!</option>
+            <option value="3">3 players</option>
+            <option value="4">4 players</option>
+            <option value="5">5 players</option>
+            <option value="6">6 players</option>
+            <option value="7">7 players</option>
+            <option value="8">8 players</option>
+            <!-- Need appropriate value -->
+            <option value="99">Party Game!</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Maximum Players</label>
+          <select class="form-select" id="user_preference_maxplayers">
+            <option value="1">Call me Hans Solo</option>
+            <option value="2">Date Night!</option>
+            <option value="3">3 players</option>
+            <option value="4">4 players</option>
+            <option value="5">5 players</option>
+            <option value="6">6 players</option>
+            <option value="7">7 players</option>
+            <option value="8">8 players</option>
+            <!-- Need appropriate value -->
+            <option value="99">Party Game!</option>
+          </select>
+        </div>
+
+
+
+        <!-- <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Example disabled select</label>
+          <select class="form-select" id="exampleDisabledSelect1" disabled="">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div> -->
+        <!-- -->
+
+
+        <!-- <fieldset class="form-group">
+          <legend class="mt-4">Radio buttons</legend>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            <label class="form-check-label" for="optionsRadios1">
+              Option one is this and that—be sure to include why it's great
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            <label class="form-check-label" for="optionsRadios1">
+              Option one is this and that—be sure to include why it's great
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            <label class="form-check-label" for="optionsRadios1">
+              Option one is this and that—be sure to include why it's great
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            <label class="form-check-label" for="optionsRadios1">
+              Option one is this and that—be sure to include why it's great
+            </label>
+          </div>
+
+        </fieldset> -->
+
+        
+
+        <!-- <fieldset class="form-group">
+          <legend class="mt-4">&nbsp</legend>
+            <label for="customRange1" class="form-label">Age</label>
+            <input type="range" class="form-range" min="0" max="adult" step="5" id="customRange1">
+
+            <label for="customRange2" class="form-label">Game Length</label>
+            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange2">
+
+            <label for="customRange3" class="form-label">Complexity</label>
+            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+
+            <label for="customRange4" class="form-label">Number of Players</label>
+            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange4">
+
+            <label for="customRange5" class="form-label">Example range</label>
+            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange5"> -->
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Submit</button> 
+
+
+
+      </fieldset>
+    </form>
+
+  </div>  
+  </div>
+
+
+<!-- ;aslkdfj;slafjd;lsakjdf -->
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

@@ -44,6 +44,24 @@ def write_up():
     return render_template("write_up.html")
 
 
+@app.route("/makePredictions", methods=["POST"])
+def make_predictions():
+    content = request.json["data"]
+    print(content)
+
+    # parse
+    user_preference_category = int(content["sex_flag"])
+    user_preference_mechanic = int(content["age"])
+    user_preference_complexity = int(content["fare"])
+    user_preference_age = int(content["familySize"])
+    user_preference_minplayers = int(content["p_class"])
+    user_preference_maxplayers = int(content["p_class"])
+    user_preference_playingtime = int(content["p_class"])
+    embarked = content["embarked"]
+
+    preds = modelHelper.makePredictions(user_preference_category, user_preference_mechanic, user_preference_complexity, user_preference_age,
+             user_preference_minplayers, user_preference_maxplayers, user_preference_playingtime, embarked)
+    return(jsonify({"ok": True, "prediction": str(preds)}))
 
 #############################################################
 
