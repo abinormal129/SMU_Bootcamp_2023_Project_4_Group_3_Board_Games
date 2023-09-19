@@ -57,7 +57,9 @@ def make_predictions():
     user_preference_minplayers = int(content["p_class"])
     user_preference_maxplayers = int(content["p_class"])
     user_preference_playingtime = int(content["p_class"])
-    embarked = content["embarked"]
+    # <!-- embarked = content["embarked"] 
+    # embarked is still in "preds" code below
+    # -->
 
     preds = modelHelper.makePredictions(user_preference_category, user_preference_mechanic, user_preference_complexity, user_preference_age,
              user_preference_minplayers, user_preference_maxplayers, user_preference_playingtime, embarked)

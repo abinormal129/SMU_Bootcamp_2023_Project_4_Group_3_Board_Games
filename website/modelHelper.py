@@ -8,7 +8,17 @@ class ModelHelper():
     def __init__(self):
         pass
 
-    def makePredictions(self, sex_flag, age, fare, familySize, pclass, embarked):
+    user_preference_category = int(content["sex_flag"])
+    user_preference_mechanic = int(content["age"])
+    user_preference_complexity = int(content["fare"])
+    user_preference_age = int(content["familySize"])
+    user_preference_minplayers = int(content["p_class"])
+    user_preference_maxplayers = int(content["p_class"])
+    user_preference_playingtime = int(content["p_class"])
+
+
+    def makePredictions(user_preference_category, user_preference_mechanic, user_preference_complexity, user_preference_age, 
+    user_preference_minplayers, user_preference_maxplayers, user_preference_playingtime):
         pclass_1 = 0
         pclass_2 = 0
         pclass_3 = 0
@@ -16,6 +26,19 @@ class ModelHelper():
         embarked_c = 0
         embarked_q = 0
         embarked_s = 0
+
+        # parse category
+        if (pclass == 1):
+            pclass_1 = 1
+        elif (pclass == 2):
+            pclass_2 = 1
+        elif (pclass == 3):
+            pclass_3 = 1
+        else:
+            pass
+
+
+
 
         # parse pclass
         if (pclass == 1):
