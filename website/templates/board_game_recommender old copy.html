@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Board Game Recommender</title>
+
+    <!-- Bootstrap Code -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css"integrity="sha384qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK"crossorigin="anonymous">
+
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <h4>Choose your Adventure: &nbsp&nbsp&nbsp&nbsp </h4>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="board_game_recommender">Board Game Recommender</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tableau01">Metadata</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tableau02">Tableau02</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sample_data">Data Table</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about_us">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="works_cited">Works Cited</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="write_up">Write-Up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navigation bar -->
+
+
+
+  <!-- Page Title/Intro -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Need help finding a new game to play?</h1>
+        <p></p>
+        <h5>Choose from the dropdowns below to roll the dice and get a suggested game you can try next!</h5>
+      </div>
+    </div>
+   <!-- Page Title/Intro -->
+   
+   
+
+    <div class="row">
+      
+      <div class="col-md-5">
+        <div id="bar"></div>
+      </div>
+      <div class="col-md-5">
+        <div id="gauge"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble"></div>
+      </div>
+    </div>
+  </div>
+
+<!-- a;lskfjsalkfjdsljfkd -->
+<div class="card-body">
+  <div class="content">
+
+    <form>
+      <fieldset>
+        <legend>Choose your board game references:</legend>
+
+
+        <div class="form-group">
+          <label for="exampleTextarea" class="form-label mt-4">What board game have you liked that will help us recommend a new game?</label>
+          <textarea class="form-control" id="boargame" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Would like to play a popular game, or an unknown-hipster-hidden gem of a game?</label>
+          <select class="form-select" id="min_rating">
+            <!-- Need appropriate values/options -->
+            <option value="1">Everyone loves this game!</option>
+            <option value="2">Most of my friends like this game.</option>
+            <option value="3">It's a "love/hate relationship" type game.</option>
+            <option value="4">I know a guy, who knows a girl, who has heard of someone liking this game.</option>
+            <option value="5">The designer's mom really enjoys this game.</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">How likely will someone I know have the game to be able to play it?</label>
+          <select class="form-select" id="max_owners">
+            <!-- Need appropriate values/options -->
+            <option value="1">It seems like everyone has this game.</option>
+            <option value="2">I know people that own the game.</option>
+            <option value="3">One person I know owns this game.</option>
+            <option value="5">No one I know has this game.</option>
+            <option value="6">This game is a unicorn and probably hasn't been seen in the wild.</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Categories</label>
+          <select class="form-select" id="user_preference_category">
+            <!-- Need appropriate values/options -->
+            <option value="1">Era/Age/Period - [Age of Reason, 
+              American West, 
+              Ancient, 
+              Medieval, 
+              Napoleonic, 
+              Post-Napoleonic, 
+              Prehistoric, 
+              Renaissance]
+              </option>
+            <option value="2">Wargames - [ American Civil, 
+              American Indian Wars, 
+              American Revolutionary, 
+              Korean, 
+              Modern Warfare, 
+              Vietnam, 
+              WWI ,
+              WWII]</option>
+            <option value="3">Strategy - [Abstract, 
+              Bluffing, 
+              City Building, 
+              Civilization, 
+              Deduction, 
+              Economic, 
+              Exploration, 
+              Industry / Manufacturing, 
+              Mafia, 
+              Maze, 
+              Murder/Mystery, 
+              Negotiation, 
+              Pirates, 
+              Political, 
+              Puzzle, 
+              Real-time, 
+              Spies/Secret Agents, 
+              Transportation, 
+              Zombies]</option>
+            <option value="4">Adventure - [Action / Dexterity, 
+              Arabian, 
+              Aviation / Flight, 
+              Comic Book / Strip, 
+              Fantasy, 
+              Movies / TV / Radio theme, 
+              Mythology, 
+              Nautical, 
+              Pike and Shot, 
+              Print & Play, 
+              Science Fiction, 
+              Space Exploration, 
+              Travel, 
+              Video Game Theme]</option>
+            <option value="5">Educational - [Children's Game, 
+              Book, 
+              Math, 
+              Medical, 
+              Memory, 
+              Novel-based, 
+              Number, 
+              Trivia, 
+              Word Game]</option>
+            <option value="6">Other - [Sports, 
+              Racing, 
+              Fighting, 
+              Animals, 
+              Card Game, 
+              Dice, 
+              Electronic, 
+              Game System, 
+              Horror]</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Age</label>
+          <select class="form-select" id="exampleSelect1">
+            <!-- Need appropriate values, options and ranges -->
+            <option value="1">Less than 5 years old</option>
+            <option value="2">5 - 11 years old</option>
+            <option value="3">11 - 14 years old</option>
+            <option value="4">15 - 18 years old</option>
+            <option value="5">18 and up</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Game Length</label>
+          <select class="form-select" id="exampleSelect1">
+            <!-- Need appropriate values, options and ranges -->
+            <option>Short Game</option>
+            <option>Medium Lengh Game (less than 1 hour)</option>
+            <option>I have no other plans today!</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Complexity</label>
+          <select class="form-select" id="user_preference_complexity">
+            <!-- Need appropriate values, options and ranges -->
+            <option>Casual Gamers</option>
+            <option>Occasional Players</option>
+            <option>Core Gamers</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Minimum Players</label>
+          <select class="form-select" id="user_preference_minplayers">
+            <option value="1">Call me Hans Solo</option>
+            <option value="2">Date Night!</option>
+            <option value="3">3 players</option>
+            <option value="4">4 players</option>
+            <option value="5">5 players</option>
+            <option value="6">6 players</option>
+            <option value="7">7 players</option>
+            <option value="8">8 players</option>
+            <!-- Need appropriate value -->
+            <option value="99">Party Game!</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Maximum Players</label>
+          <select class="form-select" id="user_preference_maxplayers">
+            <option value="1">Call me Hans Solo</option>
+            <option value="2">Date Night!</option>
+            <option value="3">3 players</option>
+            <option value="4">4 players</option>
+            <option value="5">5 players</option>
+            <option value="6">6 players</option>
+            <option value="7">7 players</option>
+            <option value="8">8 players</option>
+            <!-- Need appropriate value -->
+            <option value="99">Party Game!</option>
+          </select>
+        </div>
+
+
+
+        <!-- <div class="form-group">
+          <label for="exampleSelect1" class="form-label mt-4">Example disabled select</label>
+          <select class="form-select" id="exampleDisabledSelect1" disabled="">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div> -->
+        <!-- -->
+
+
+        <!-- <fieldset class="form-group">
+          <legend class="mt-4">Radio buttons</legend>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            <label class="form-check-label" for="optionsRadios1">
+              Option one is this and that—be sure to include why it's great
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            <label class="form-check-label" for="optionsRadios1">
+              Option one is this and that—be sure to include why it's great
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            <label class="form-check-label" for="optionsRadios1">
+              Option one is this and that—be sure to include why it's great
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            <label class="form-check-label" for="optionsRadios1">
+              Option one is this and that—be sure to include why it's great
+            </label>
+          </div>
+
+        </fieldset> -->
+
+        
+
+        <!-- <fieldset class="form-group">
+          <legend class="mt-4">&nbsp</legend>
+            <label for="customRange1" class="form-label">Age</label>
+            <input type="range" class="form-range" min="0" max="adult" step="5" id="customRange1">
+
+            <label for="customRange2" class="form-label">Game Length</label>
+            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange2">
+
+            <label for="customRange3" class="form-label">Complexity</label>
+            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+
+            <label for="customRange4" class="form-label">Number of Players</label>
+            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange4">
+
+            <label for="customRange5" class="form-label">Example range</label>
+            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange5"> -->
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Submit</button> 
+
+
+
+      </fieldset>
+    </form>
+
+  </div>  
+  </div>
+
+
+<!-- ;aslkdfj;slafjd;lsakjdf -->
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

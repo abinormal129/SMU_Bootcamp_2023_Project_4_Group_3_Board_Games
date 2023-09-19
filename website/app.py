@@ -1,12 +1,15 @@
 # Import the dependencies
 import numpy as np
 import pandas as pd
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, jsonify, request
+from modelHelper import ModelHelper
 
 #################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+modelHelper = ModelHelper()
 
 #################################################
 # Flask Routes
@@ -50,20 +53,12 @@ def make_predictions():
     print(content)
 
     # parse
-    user_preference_category = int(content["sex_flag"])
-    user_preference_mechanic = int(content["age"])
-    user_preference_complexity = int(content["fare"])
-    user_preference_age = int(content["familySize"])
-    user_preference_minplayers = int(content["p_class"])
-    user_preference_maxplayers = int(content["p_class"])
-    user_preference_playingtime = int(content["p_class"])
-    # <!-- embarked = content["embarked"] 
-    # embarked is still in "preds" code below
-    # -->
-
-    preds = modelHelper.makePredictions(user_preference_category, user_preference_mechanic, user_preference_complexity, user_preference_age,
-             user_preference_minplayers, user_preference_maxplayers, user_preference_playingtime, embarked)
-    return(jsonify({"ok": True, "prediction": str(preds)}))
+    boardgame_name = content["boardgame_name"]
+    min_rating = int(content["min_rating"])
+    max_owners = int(content["max_owners"])
+    
+    preds = modelHelper.makePredictions(boardgame_name, min_rating, max_owners)
+    return(jsonify({"ok": True, "prediction":preds}))
 
 #############################################################
 
