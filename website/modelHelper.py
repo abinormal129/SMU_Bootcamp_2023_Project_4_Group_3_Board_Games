@@ -20,6 +20,7 @@ class ModelHelper():
 
 
     def makePredictions(self, boardgame_name, min_rating, max_owners):
+        # code somehow broke and the read_csv needed to be updated
         df = pd.read_csv('./project_04_capstone/boardgames.csv')
         df_model = df.copy()
         # create a dataframe with only the relevant features
