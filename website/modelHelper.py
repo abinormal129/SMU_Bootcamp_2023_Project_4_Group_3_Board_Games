@@ -20,7 +20,7 @@ class ModelHelper():
 
 
     def makePredictions(self, boardgame_name, min_rating, max_owners):
-        df = pd.read_csv('boardgames.csv')
+        df = pd.read_csv('./project_04_capstone/boardgames.csv')
         df_model = df.copy()
         # create a dataframe with only the relevant features
         # scale the features to a range between 0 and 1
